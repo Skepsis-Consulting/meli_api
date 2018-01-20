@@ -3,6 +3,8 @@ y hacer análisis del mercado en R.
 
 Para contribuir haz fork y genera una nueva rama
 
+NO SUBIR A LA MASTER
+
 Las ramas que sean validadas serán merged a la master
 
 Visita nuestro sistema www.gadalsys.com 
