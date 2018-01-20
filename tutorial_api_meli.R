@@ -23,7 +23,7 @@ traer_data<-function(url_final){
 	## guardar el numero de total de listings que resultaron de esta busqueda
 	total = as.numeric(data_parse$paging$total)
 	## saber cuantas veces voy a tener que traer data de 50 resultados
-	tandas = round(total/50) -2
+	tandas = ceiling(total/50) - 1
 	# tandas = 100
 	## creamos los vectores donde vamos a guardar la data
 	seller_id <- vector(mode='character', length=0)
