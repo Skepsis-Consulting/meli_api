@@ -60,6 +60,18 @@ traer_data<-function(url_final){
 } ## cierra la funcion traer data 
 
 calcular_item_promedio <- function(df){
+	## toma en cuenta el total de itemes vendidos  desde que inicio la publicacion
+	## lo multiplica por el precio actual
+	## divide entre el total de items vendidos
+
 	item_promedio <- sum(df$total_units_sold * df$price)/ sum(df$total_units_sold)
+}
+
+
+traer_nicknames <- function(seller_id){
+	url <- paste("https://api.mercadolibre.com/users/", as.character(seller_id), sep="", collapse=NULL)
+	data <- GET(url)
+	data_parse <- jsonlite::fromJSON(content(data, "text"), simplifyVector = FALSE)
+	return(data_parse$nickname)
 }
 	
