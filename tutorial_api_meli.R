@@ -41,10 +41,13 @@ traer_data<-function(url_final){
 		data_parse <- jsonlite::fromJSON(content(data, "text"), simplifyVector = FALSE)
 		for(f in c(1:length(data_parse$results))){
 			## cada uno de los 50 resultados los vamos guardando
-			seller_id <- c(seller_id, data_parse$results[[f]]$seller$id)
-			total_units_sold <-c(total_units_sold, data_parse$results[[f]]$sold_quantity)
-			price <- c(price, data_parse$results[[f]]$price)
-			listing_id <- c(listing_id, data_parse$results[[f]]$id)
+			if(length(data_parse$results) > 0 ){
+				seller_id <- c(seller_id, data_parse$results[[f]]$seller$id)
+				total_units_sold <-c(total_units_sold, data_parse$results[[f]]$sold_quantity)
+				price <- c(price, data_parse$results[[f]]$price)
+				listing_id <- c(listing_id, data_parse$results[[f]]$id)
+			}
+			
 		}
 		
 	}
